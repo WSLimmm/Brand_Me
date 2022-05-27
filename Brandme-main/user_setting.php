@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF8">
         <title>Main Page</title>
 
         <!-- UNICONS -->
@@ -19,7 +19,7 @@
         <header class="header" id="header">
             <!-- ===========================//// NAV ////================================= -->
             <nav class="nav container">
-                <a href="#" class="nav__logo">Brand Me.</a>
+                <a href="main.php" class="nav__logo">Brand Me.</a>
                 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list grid">
@@ -389,7 +389,7 @@
                     el: '.swiper-pagination',
                     clickable : true,
                 },
-                mousewheel: true,
+                mousewheel: true,~
                 keyboard: true,
             });            
         </script>

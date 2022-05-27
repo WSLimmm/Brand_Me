@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF8">
         <title>Main Page</title>
 
         <!-- UNICONS -->

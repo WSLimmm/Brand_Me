@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,28 +14,24 @@
 </head>
 <body>
     <?php   
-            include "dbconn.php";
+            // include "dbconn.php";
 
-            mysql_query("set session character_set_connection=utf8;");
-            mysql_query("set session character_set_results=utf8;");
-            mysql_query("set session character_set_client=utf8;");  
+            // $id = $_POST['user_id'];
+            // $pw = $_POST['user_pw'];
+            // $name = $_POST['user_name'];
 
-            $id = $_POST['user_id'];
-            $pw = $_POST['user_pw'];
-            $name = $_POST['user_name'];
+            // $sql = "INSERT INTO userinfo ( user_id, user_pw, user_name ) VALUES ( '$id', '$pw', '$name' )";
 
-            $sql = "INSERT INTO userinfo ( user_id, user_pw, user_name ) VALUES ( '$id', '$pw', '$name' )";
+            // $result = mysql_query($sql, $connect);
 
-            $result = mysql_query($sql, $connect);
-
-            mysql_close();
+            // mysql_close();
     ?>
 
     <div class="login-form">
         <div class="logo">
             <h1>Sign Up</h1>
         </div>
-        <form method="post">
+        <form method="post" action="signup_check.php">
 
             <div class="int-area">
                 <input type="text" name="user_id" id="id" autocomplete="off" required>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF8">
         <title>Index</title>
         <link rel="stylesheet" href="./css/loginstyle.css">
         <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
