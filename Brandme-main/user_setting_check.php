@@ -2,15 +2,8 @@
             session_start();
             include "dbconn.php";   // db 연결
 
-            mysql_query($conn, "set session character_set_connection=utf8;");
-            mysql_query($conn, "set session character_set_results=utf8;");
-            mysql_query($conn, "set session character_set_client=utf8;");
-
             $user_id = $_SESSION['user_id'];
-            echo "
-                user_id: {$user_id} <br>
-            ";
-
+        
             // home
             $home_name = $_POST['user_name'];
             $home_occupation = $_POST['occupation'];
@@ -19,21 +12,40 @@
             $notion = $_POST['notion'];
             $instagram = $_POST['instagram'];
 
-            echo "
-                name: $home_name <br>
-                occu: $home_occupation <br>
-                home_info: $home_information <br>
-                git: $git <br>
-                notion: $notion <br>
-                insta: $instagram <br>
-            ";
+            $check = "SELECT * FROM home WHERE user_id = '$user_id'";
+            $check_result = mysql_query($check, $connect);
+            $check_num = mysql_num_rows($check_result);
+
+            if (!$check_num) {
+
+                $insert_home = "INSERT INTO home (user_id, user_name, occupation, home_information, git, notion, instagram)
+                                    VALUES ('$user_id', '$home_name', '$home_occupation', '$home_information', '$git', '$notion', '$instagram')";
+                $insert_result = mysql_query($insert_home, $connect);
+                echo ("
+                    <script>                            
+                        window.alert('정보를 입력하였습니다.')
+                        location.replace('main.php')
+                    </script>
+                    ");
+        
+            } else {
+                
+                $update_home = "UPDATE home SET user_id = '$user_id', user_name = '$home_name', occupation = '$home_occupation',
+                                    home_information = '$home_information', git = '$git', notion = '$notion', instagram = '$instagram' WHERE user_id = '$user_id'";
+                $update_result = mysql_query($update_home, $connect);
+                echo ("
+                    <script>                            
+                        window.alert('정보를 수정하였습니다.')
+                        location.replace('main.php')
+                    </script>
+                    ");
+            }
+
 
             //about 부분 추가해야함.
             $about_information = $_POST['about_information'];
 
-            echo "
-                about_info: $about_information <br>
-            ";
+            
 
             //skills frontend
             $skills_front_1 = $_POST['skills_front_1'];
@@ -45,10 +57,7 @@
             $skills_front_per_3 = $_POST['skills_front_per_3'];
             $skills_front_per_4 = $_POST['skills_front_per_4'];
 
-            echo "
-                skills_front: $skills_front_1, $skills_front_2, $skills_front_3, $skills_front_4 <br>
-                skills_front_per: $skills_front_per_1, $skills_front_per_2, $skills_front_per_3, $skills_front_per_4 <br>
-            ";
+            
 
             //skills backend
             $skills_back_1 = $_POST['skills_back_1'];
@@ -60,37 +69,17 @@
             $skills_back_per_3 = $_POST['skills_back_per_3'];
             $skills_back_per_4 = $_POST['skills_back_per_4'];
 
-            echo "
-                skills_back: $skills_back_1, $skills_back_2, $skills_back_3, $skills_back_4 <br>
-                skills_back_per: $skills_back_per_1, $skills_back_per_2, $skills_back_per_3, $skills_back_per_4 <br>
-            ";
+            
 
             //contact
             $phone = $_POST['phone'];
             $email = $_POST['email'];
             $location = $_POST['location'];
 
-            echo "
-                phone: $phone <br>
-                email: $email <br>
-                location: $location <br>
-            ";
-
-
-            // $sql = "SELECT * FROM userinfo WHERE user_id = '$id'";
-            // $result = mysql_query($sql, $connect);
-            // $num_match = mysql_num_rows($result);
-
-            
             
 
-            
-            // echo ("
-            //     <script>                            
-            //         window.alert('회원가입이 성공하였습니다.')
-            //         location.replace('main.php')
-            //     </script>
-            //     ");
+
+        
             
    
             mysql_close();

@@ -127,7 +127,17 @@
                             <h3 class="home__subtitle">(Backend developer)</h3>
                             <!-- <p class="home__description">High level experience in web disign and 
                                 Knowledge, producing quality work.</p> -->
-                            <p class="home__description">웹 서버 동작에 높은 이해도를 가지고 있으며, 웹 풀스택 개발자를 꿈꾸고 있습니다.</p>                            
+                            <p class="home__description">
+                                <?php
+                                    $user_id = $_SESSION['user_id'];
+
+                                    $home_select = "SELECT * FROM home WHERE user_id = '$user_id'";
+                                    $home_result = mysql_query($home_select, $connect);
+                                    $home_row = mysql_fetch_array($home_result);
+
+                                    echo $home_row['home_information'];
+                                ?>
+                            </p>                            
                             <a href="#contactme" class="button button--flex"> Contact Me
                                 <i class="uil uil-message button__icon"></i>
                             </a>

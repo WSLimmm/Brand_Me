@@ -1,6 +1,8 @@
 <?php
     session_start();
     include "dbconn.php";
+
+    $user_id = $_SESSION['user_id'];
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +22,28 @@
     </head>
     
     <body>
+        <?php
+            $home_select = "SELECT * FROM home WHERE user_id = '$user_id'";
+            $home_result = mysql_query($home_select, $connect);
+            $home_row = mysql_fetch_array($home_result);
+
+            $about_select = "SELECT * FROM about WHERE user_id = '$user_id'";
+            $about_result = mysql_query($about_select, $connect);
+            $about_row = mysql_fetch_array($about_result);
+
+            $skills_backend_select = "SELECT * FROM skills_backend WHERE user_id = '$user_id'";
+            $skills_backend_result = mysql_query($skills_backend_select, $connect);
+            $skills_backend_row = mysql_fetch_array($skills_backend_result);
+
+            $skills_frontend_select = "SELECT * FROM skills_frontend WHERE user_id = '$user_id'";
+            $skills_frontend_result = mysql_query($skills_frontend_select, $connect);
+            $skills_frontend_row = mysql_fetch_array($skills_frontend_result);
+
+            $contact_select = "SELECT * FROM contact WHERE user_id = '$user_id'";
+            $contact_result = mysql_query($contact_select, $connect);
+            $contact_row = mysql_fetch_array($contact_result);
+
+        ?>
         <form action="user_setting_check.php" method="post" >
         <!-- ===========================//// HEADER ////================================= -->
         <header class="header" id="header">
@@ -86,30 +110,27 @@
 
                 <h2 class="section__title">Home</h2>
                 <span class="section__subtitle">hello</span>
-
-                
                 <div class="home__container container">
                     <!-- <form method ="post" action="user_setting_check.php" class="skill__home grid"> -->
                     <div class="home__userinfo grid">
                         <div class="home__username home__items">
                             <div class="contact__inputs">
                                 <label for="" class="contact__label"><i class="uil uil-user"></i> Name</label>
-                                <input type="text" name ="user_name" class="contact__input">
+                                <input type="text" name ="user_name" class="contact__input" value="<?php echo $home_row['user_name'];?>">
                             </div>
                         </div>
                         <div class="home__useroccupation home__items">
                             <div class="contact__inputs">
                                 <label for="" class="contact__label"><i class="uil uil-bag"></i> occupation</label>
-                                <input type="text" name ="occupation" class="contact__input">
+                                <input type="text" name ="occupation" class="contact__input" value="<?php echo $home_row['occupation'];?>">
                             </div>
                         </div>
                     </div>
                     <div class="home__infomation home__items">
                         <div class="contact__inputs">
                             <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i> infomation</label>
-                            
-                            <!--  안들어감    -->
-                            <textarea name="home_information" id="" cols="0" rows="1" class="contact__input"></textarea>
+                        
+                            <textarea name="home_information" id="" cols="0" rows="1" class="contact__input"><?php echo $home_row['home_information'];?></textarea>
                         </div>
                     </div>
 
@@ -119,21 +140,21 @@
                                 <i class="uil uil-github-alt"></i>
                                 <span class="span__flex">&nbsp;https://github.com/</span>
                             </div>
-                            <input type="text" name ="git" class="input__link" placeholder="git UserName (ex.hyunsb)">
+                            <input type="text" name ="git" class="input__link" placeholder="git UserName (ex.hyunsb)" value="<?php echo $home_row['git'];?>">
                         </div>
                         <div class="homelink__inputs">
                             <div class="span__item">
                                 <i class="uil uil-instagram"></i>
                                 <span class="span__flex">&nbsp;https://instagram.com/</span>
                             </div>
-                            <input type="text" name ="instagram" class="input__link" placeholder="instagram ID">
+                            <input type="text" name ="instagram" class="input__link" placeholder="instagram ID" value="<?php echo $home_row['instagram'];?>">
                         </div>
                         <div class="homelink__inputs">
                             <div class="span__item">
                                 <i class="uil uil-web-grid"></i>
                                 <span class="span__flex">&nbsp;https://notion.com/</span>
                             </div>
-                            <input type="text" name ="notion" class="input__link">
+                            <input type="text" name ="notion" class="input__link" value="<?php echo $home_row['notion'];?>">
                         </div>                        
                     </div>
                     <!-- </form> -->
@@ -152,8 +173,7 @@
                             <div class="contact__inputs">
                                 <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i> information</label>
                                 
-                                <!--  안들어감    -->
-                                <textarea name="about_information" id="" cols="0" rows="1" class="contact__input"></textarea>
+                                <textarea name="about_information" id="" cols="0" rows="1" class="contact__input"><?php echo $about_row['about_information'];?></textarea>
                             </div>
                         </div>
 
@@ -332,21 +352,20 @@
                 <span class="section__subtitle">Get in Touch</span>
 
                 <div class="contact__container container">
-                    <!--  phone, email, location 다 안들어감    -->
                     <!-- <form method ="post" action="user_setting_check.php" class="contact__form grid"> -->
                         <div class="contact__inputs">
                             <label for="" class="contact__label"><i class="uil uil-phone"></i> Phone Number</label>
-                            <input name="phone" type="text" class="contact__input">
+                            <input name="phone" type="text" class="contact__input" value="<?php echo $contact_row['phone'];?>">
                         </div>
 
                         <div class="contact__inputs">
                             <label for="" class="contact__label"><i class="uil uil-envelope"></i> Email</label>
-                            <input name="email" type="text" class="contact__input">
+                            <input name="email" type="text" class="contact__input" value="<?php echo $contact_row['email'];?>">
                         </div>
 
                         <div class="contact__inputs">
                             <label for="" class="contact__label"><i class="uil uil-map-marker"></i> Location</label>
-                            <input name="location" type="text" class="contact__input">
+                            <input name="location" type="text" class="contact__input" value="<?php echo $contact_row['location'];?>">
                         </div>
                     <!-- </form> -->
                 </div>
