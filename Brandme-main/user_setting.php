@@ -209,44 +209,43 @@
                             <span>skills</span>
                             <span>%</span>
                         </div>
-                        <!--  skills는 전체 다 안들어감    -->
                         <div class="skills__skill grid">
                             <div class="skills__inputs">
-                                <input name ="skills_front_1" type="text" class="skills__input" placeholder="react">
+                                <input name ="skills_front_1" type="text" class="skills__input" placeholder="react" value="<?php echo $skills_frontend_row['skills_front_1'];?>">
                             </div>
 
                             <div class="skills__inputs">
-                                <input name ="skills_front_per_1" type="text" class="skills__input" placeholder="65">
+                                <input name ="skills_front_per_1" type="text" class="skills__input" placeholder="65" value="<?php echo $skills_frontend_row['skills_front_per_1'];?>">
                             </div>
                         </div>
 
                         <div class="skills__skill grid">
                             <div class="skills__inputs">
-                                <input name ="skills_front_2" type="text" class="skills__input" >
+                                <input name ="skills_front_2" type="text" class="skills__input" value="<?php echo $skills_frontend_row['skills_front_2'];?>">
                             </div>
 
                             <div class="skills__inputs">
-                                <input name ="skills_front_per_2" type="text" class="skills__input">
-                            </div>
-                        </div> 
-
-                        <div class="skills__skill grid">
-                            <div class="skills__inputs">
-                                <input name ="skills_front_3" type="text" class="skills__input">
-                            </div>
-
-                            <div class="skills__inputs">
-                                <input name ="skills_front_per_3" type="text" class="skills__input">
+                                <input name ="skills_front_per_2" type="text" class="skills__input" value="<?php echo $skills_frontend_row['skills_front_per_2'];?>">
                             </div>
                         </div> 
 
                         <div class="skills__skill grid">
                             <div class="skills__inputs">
-                                <input name ="skills_front_4" type="text" class="skills__input">
+                                <input name ="skills_front_3" type="text" class="skills__input" value="<?php echo $skills_frontend_row['skills_front_3'];?>">
                             </div>
 
                             <div class="skills__inputs">
-                                <input name ="skills_front_per_4" type="text" class="skills__input">
+                                <input name ="skills_front_per_3" type="text" class="skills__input" value="<?php echo $skills_frontend_row['skills_front_per_3'];?>">
+                            </div>
+                        </div> 
+
+                        <div class="skills__skill grid">
+                            <div class="skills__inputs">
+                                <input name ="skills_front_4" type="text" class="skills__input" value="<?php echo $skills_frontend_row['skills_front_4'];?>">
+                            </div>
+
+                            <div class="skills__inputs">
+                                <input name ="skills_front_per_4" type="text" class="skills__input" value="<?php echo $skills_frontend_row['skills_front_per_4'];?>">
                             </div>
                         </div> 
 
@@ -260,41 +259,41 @@
                         </div>
                         <div class="skills__skill grid">
                             <div class="skills__inputs">
-                                <input name ="skills_back_1" type="text" class="skills__input" placeholder="nodejs">
+                                <input name ="skills_back_1" type="text" class="skills__input" placeholder="nodejs" value="<?php echo $skills_backend_row['skills_back_1'];?>">
                             </div>
 
                             <div class="skills__inputs">
-                                <input name ="skills_back_per_1" type="text" class="skills__input" placeholder="85">
+                                <input name ="skills_back_per_1" type="text" class="skills__input" placeholder="85" value="<?php echo $skills_backend_row['skills_back_per_1'];?>">
                             </div>
                         </div>
 
                         <div class="skills__skill grid">
                             <div class="skills__inputs">
-                                <input name ="skills_back_2" type="text" class="skills__input" >
+                                <input name ="skills_back_2" type="text" class="skills__input" value="<?php echo $skills_backend_row['skills_back_2'];?>">
                             </div>
 
                             <div class="skills__inputs">
-                                <input name ="skills_back_per_2" type="text" class="skills__input">
-                            </div>
-                        </div> 
-
-                        <div class="skills__skill grid">
-                            <div class="skills__inputs">
-                                <input name ="skills_back_3" type="text" class="skills__input">
-                            </div>
-
-                            <div class="skills__inputs">
-                                <input name ="skills_back_per_3" type="text" class="skills__input">
+                                <input name ="skills_back_per_2" type="text" class="skills__input" value="<?php echo $skills_backend_row['skills_back_per_2'];?>">
                             </div>
                         </div> 
 
                         <div class="skills__skill grid">
                             <div class="skills__inputs">
-                                <input name ="skills_back_4" type="text" class="skills__input">
+                                <input name ="skills_back_3" type="text" class="skills__input" value="<?php echo $skills_backend_row['skills_back_3'];?>">
                             </div>
 
                             <div class="skills__inputs">
-                                <input name ="skills_back_per_4" type="text" class="skills__input">
+                                <input name ="skills_back_per_3" type="text" class="skills__input" value="<?php echo $skills_backend_row['skills_back_per_3'];?>">
+                            </div>
+                        </div> 
+
+                        <div class="skills__skill grid">
+                            <div class="skills__inputs">
+                                <input name ="skills_back_4" type="text" class="skills__input" value="<?php echo $skills_backend_row['skills_back_4'];?>">
+                            </div>
+
+                            <div class="skills__inputs">
+                                <input name ="skills_back_per_4" type="text" class="skills__input" value="<?php echo $skills_backend_row['skills_back_per_4'];?>">
                             </div>
                         </div>
                     <!-- </form> -->
