@@ -48,7 +48,7 @@
         <header class="header" id="header">
             <!-- ===========================//// NAV ////================================= -->
             <nav class="nav container">
-                <a href="#" class="nav__logo">Brand Me.</a>
+                <a href="home.html" class="nav__logo">Brand Me.</a>
                 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list grid">
