@@ -43,6 +43,16 @@
             $skills_frontend_result = mysql_query($skills_frontend_select, $connect);
             $skills_frontend_row = mysql_fetch_array($skills_frontend_result);
 
+            // qualification_edu
+            $qualification_edu_select = "SELECT * FROM qualification_edu WHERE user_id = '$user_id'";
+            $qualification_edu_result = mysql_query($qualification_edu_select, $connect);
+            $qualification_edu_row = mysql_fetch_array($qualification_edu_result);
+
+            // qualification_work
+            $qualification_work_select = "SELECT * FROM qualification_work WHERE user_id = '$user_id'";
+            $qualification_work_result = mysql_query($qualification_work_select, $connect);
+            $qualification_work_row = mysql_fetch_array($qualification_work_result);
+
             // services
             $services_select = "SELECT * FROM services WHERE user_id = '$user_id'";
             $services_result = mysql_query($services_select, $connect);
@@ -75,6 +85,11 @@
                         <li class="nav__item">
                             <a href="#skills" class="nav__link">
                                 <i class="uil uil-file-alt nav__icon"></i> Skills
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#qualification" class="nav__link">
+                                <i class="uil uil-file-alt nav__icon"></i> Qualification
                             </a>
                         </li>
                         <li class="nav__item">
@@ -190,15 +205,15 @@
                         <div class="about__input grid">
                             <div>
                                 <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i>Year Experience</label>
-                                <input type="number" name ="notion" class="input__link" value="<?php echo $about_row['experience'];?>">
+                                <input type="number" name ="experience" class="input__link" value="<?php echo $about_row['experience'];?>">
                             </div>
                             <div>
                                 <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i>Completed Project Number</label>
-                                <input type="number" name ="notion" class="input__link" value="<?php echo $home_row['project'];?>">
+                                <input type="number" name ="project" class="input__link" value="<?php echo $home_row['project'];?>">
                             </div>
                             <div>
                                 <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i>Companies Worked</label>
-                                <input type="number" name ="notion" class="input__link" value="<?php echo $home_row['worked'];?>">
+                                <input type="number" name ="workd" class="input__link" value="<?php echo $home_row['worked'];?>">
                             </div>
                         </div>
                     </div>
@@ -320,22 +335,145 @@
 
 
             <!-- ===========================//// QUALIFICATION ////================================= -->
-            <section class="qualification section">
+            <section class="qualification section" id="qualification">
                 <h2 class="section__title">Qualification</h2>
                 <span class="section__subtitle">My persnal journey</span>
 
-                <!-- <form method ="post" action="user_setting_check.php" class="qualification__form grid"> -->
-                <div class="qualification__container container">
-                    <div class="qualification__tabs">
-                        <div class="qualification__button button--flex qualification__active" data-target='#education'>
-                            <i class="uil uil-graduation-cap qualification__icon"></i>
-                            Education
+                    <!-- ===========================//// QUALIFICATION EDU ////================================= -->
+                    <!-- <form method ="post" action="user_setting_check.php" class="qualification__form grid"> -->
+                    <div class="qualification__container container">
+                        <div class="qualification__tabs">
+                            <div class="qualification__button button--flex qualification__active" data-target='#education'>
+                                <i class="uil uil-graduation-cap qualification__icon"></i>
+                                Education
+                            </div>
+                        
+                        <div class="about__input grid">
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu1" class="input__link" placeholder="Computer Enginnering" value="<?php echo $qualification_edu_row['edu1'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu1_location" class="input__link" placeholder="Sungkyul University" value="<?php echo $qualification_edu_row['edu1_location'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu1_period" class="input__link" placeholder="2016 - 2022" value="<?php echo $qualification_edu_row['edu1_period'];?>">
+                            </div>
                         </div>
 
+                        <div class="about__input grid">
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu2" class="input__link" value="<?php echo $qualification_edu_row['edu2'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu2_location" class="input__link" value="<?php echo $qualification_edu_row['edu2_location'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu2_period" class="input__link" value="<?php echo $qualification_edu_row['edu2_period'];?>">
+                            </div>
+                        </div>
+
+                        <div class="about__input grid">
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu3" class="input__link" value="<?php echo $qualification_edu_row['edu3'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu3_location" class="input__link" value="<?php echo $qualification_edu_row['edu3_location'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu3_period" class="input__link" value="<?php echo $qualification_edu_row['edu3_period'];?>">
+                            </div>
+                        </div>
+
+                        <div class="about__input grid">
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu4" class="input__link" value="<?php echo $qualification_edu_row['edu4'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu4_location" class="input__link" value="<?php echo $qualification_edu_row['edu4_location'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="edu4_period" class="input__link" value="<?php echo $qualification_edu_row['edu4_period'];?>">
+                            </div>
+                        </div>
+
+                        
+                        <!-- ===========================//// QUALIFICATION WORK ////================================= -->
                         <div class="qualification__button button--flex" data-target='#work'>
                             <i class="uil uil-briefcase-alt qualification__icon"></i>
                             Work
                         </div>
+                        <div class="about__input grid">
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work1" class="input__link" placeholder="Software Enginner" value="<?php echo $qualification_work_row['work1'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work1_location" class="input__link" placeholder="Microsoft" value="<?php echo $qualification_work_row['work1_location'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work1_period" class="input__link" placeholder="2020 - 2022" value="<?php echo $qualification_work_row['work1_period'];?>">
+                            </div>
+                        </div>
+
+                        <div class="about__input grid">
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work2" class="input__link" value="<?php echo $qualification_work_row['work2'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work2_location" class="input__link" value="<?php echo $qualification_work_row['work2_location'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work2_period" class="input__link" value="<?php echo $qualification_work_row['work2_period'];?>">
+                            </div>
+                        </div>
+
+                        <div class="about__input grid">
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work3" class="input__link" value="<?php echo $qualification_work_row['work3'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work3_location" class="input__link" value="<?php echo $qualification_work_row['work3_location'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work3_period" class="input__link" value="<?php echo $qualification_work_row['work3_period'];?>">
+                            </div>
+                        </div>
+
+                        <div class="about__input grid">
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work4" class="input__link" value="<?php echo $qualification_work_row['work4'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work4_location" class="input__link" value="<?php echo $qualification_work_row['work4_location'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"></label>
+                                <input type="text" name ="work4_period" class="input__link" value="<?php echo $qualification_work_row['work4_period'];?>">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <!-- </form> -->

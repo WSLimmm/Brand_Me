@@ -28,6 +28,16 @@
     $skills_backend_result = mysql_query($skills_backend_select, $connect);
     $skills_backend_row = mysql_fetch_array($skills_backend_result);
 
+    // qualification_edu
+    $qualification_edu_select = "SELECT * FROM qualification_edu WHERE user_id = '$user_id'";
+    $qualification_edu_result = mysql_query($qualification_edu_select, $connect);
+    $qualification_edu_row = mysql_fetch_array($qualification_edu_result);
+
+    // qualification_work
+    $qualification_work_select = "SELECT * FROM qualification_work WHERE user_id = '$user_id'";
+    $qualification_work_result = mysql_query($qualification_work_select, $connect);
+    $qualification_work_row = mysql_fetch_array($qualification_work_result);
+
     // services
     $services_select = "SELECT * FROM services WHERE user_id = '$user_id'";
     $services_result = mysql_query($services_select, $connect);
@@ -434,11 +444,11 @@
                             <div class="qualification__data">
                                 <div>
                                     <!-- DB 입력값 변수로 변경할 것 -->
-                                    <h3 class="qualification__title">Computer Enginner</h3>
-                                    <span class="qualification__subtitle">SungKyul - University</span>
+                                    <h3 class="qualification__title"><?php echo $qualification_edu_row['edu1'];?></h3>
+                                    <span class="qualification__subtitle"><?php echo $qualification_edu_row['edu1_location'];?></span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
-                                        2016 - 2023
+                                        <?php echo $qualification_edu_row['edu1_period'];?>
                                     </div>
                                 </div>
 
@@ -459,11 +469,11 @@
 
                                 <div>
                                     <!-- DB 입력값 변수로 변경할 것 -->
-                                    <h3 class="qualification__title">Web development</h3>
-                                    <span class="qualification__subtitle">Korea - Institute</span>
+                                    <h3 class="qualification__title"><?php echo $qualification_edu_row['edu2'];?></h3>
+                                    <span class="qualification__subtitle"><?php echo $qualification_edu_row['edu2_location'];?></span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
-                                        2014 - 2017
+                                        <?php echo $qualification_edu_row['edu2_period'];?>
                                     </div>
                                 </div>
 
@@ -475,21 +485,40 @@
 
                                 <div>
                                     <!-- DB 입력값 변수로 변경할 것 -->
-                                    <h3 class="qualification__title">Web development</h3>
-                                    <span class="qualification__subtitle">Korea - Institute</span>
+                                    <h3 class="qualification__title"><?php echo $qualification_edu_row['edu3'];?></h3>
+                                    <span class="qualification__subtitle"><?php echo $qualification_edu_row['edu3_location'];?></span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
-                                        2014 - 2017
+                                        <?php echo $qualification_edu_row['edu3_period'];?>
                                     </div>
                                 </div>
 
                                 <div>
                                     <span class="qualification__rounder"></span>
-                                    <!-- <span class="qualification__line"></span> -->
+                                    <span class="qualification__line"></span>
                                 </div>
 
 
-                            </div>                            
+                            </div>
+                            
+                            <!-- =========================== QUALIFICATION 4================================= -->
+                            <div class="qualification__data">
+                                <div></div>
+
+                                <div>
+                                    <span class="qualification__rounder"></span>
+                                </div>
+
+                                <div>
+                                    <!-- DB 입력값 변수로 변경할 것 -->
+                                    <h3 class="qualification__title"><?php echo $qualification_edu_row['edu4'];?></h3>
+                                    <span class="qualification__subtitle"><?php echo $qualification_edu_row['edu4_location'];?></span>
+                                    <div class="qualification__calendar">
+                                        <i class="uil uil-calendar-alt"></i>
+                                        <?php echo $qualification_edu_row['edu4_period'];?>
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
 
                         <!-- =========================== QUALIFICATION CONTENT 2================================= -->
@@ -505,11 +534,11 @@
 
                                 <div>
                                     <!-- DB 입력값 변수로 변경할 것 -->
-                                    <h3 class="qualification__title">SoftWare Enginner</h3>
-                                    <span class="qualification__subtitle">Microsoft - korea</span>
+                                    <h3 class="qualification__title"><?php echo $qualification_work_row['work1'];?></h3>
+                                    <span class="qualification__subtitle"><?php echo $qualification_work_row['work1_location'];?></span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
-                                        2016 - 2023
+                                        <?php echo $qualification_work_row['work1_period'];?>
                                     </div>
                                 </div>
 
@@ -521,11 +550,11 @@
 
                                 <div>
                                     <!-- DB 입력값 변수로 변경할 것 -->
-                                    <h3 class="qualification__title">Web Developer</h3>
-                                    <span class="qualification__subtitle">Naver - korea</span>
+                                    <h3 class="qualification__title"><?php echo $qualification_work_row['work2'];?></h3>
+                                    <span class="qualification__subtitle"><?php echo $qualification_work_row['work2_location'];?></span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
-                                        2014 - 2017
+                                        <?php echo $qualification_work_row['work2_period'];?>
                                     </div>
                                 </div>
                                 <div>
@@ -547,11 +576,11 @@
 
                                 <div>
                                     <!-- DB 입력값 변수로 변경할 것 -->
-                                    <h3 class="qualification__title">UI Designer</h3>
-                                    <span class="qualification__subtitle">Figma - Spain</span>
+                                    <h3 class="qualification__title"><?php echo $qualification_work_row['work3'];?></h3>
+                                    <span class="qualification__subtitle"><?php echo $qualification_work_row['work3_location'];?></span>
                                     <div class="qualification__calendar">
                                         <i class="uil uil-calendar-alt"></i>
-                                        2016 - 2023
+                                        <?php echo $qualification_work_row['work3_period'];?>
                                     </div>
                                 </div>
                         </div>
@@ -560,11 +589,11 @@
                                 
                             <div>
                                 <!-- DB 입력값 변수로 변경할 것 -->
-                                <h3 class="qualification__title">UI Designer</h3>
-                                <span class="qualification__subtitle">Figma - Spain</span>
+                                <h3 class="qualification__title"><?php echo $qualification_work_row['work4'];?></h3>
+                                <span class="qualification__subtitle"><?php echo $qualification_work_row['work4_location'];?></span>
                                 <div class="qualification__calendar">
                                     <i class="uil uil-calendar-alt"></i>
-                                    2016 - 2023
+                                    <?php echo $qualification_work_row['work4_period'];?>
                                 </div>
                             </div>    
                             
