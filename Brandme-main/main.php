@@ -8,18 +8,32 @@
     $result = mysql_query($sql, $connect);
     $row = mysql_fetch_array($result);
 
+    //home
     $home_select = "SELECT * FROM home WHERE user_id = '$user_id'";
     $home_result = mysql_query($home_select, $connect);
     $home_row = mysql_fetch_array($home_result);
 
+    // about
+    $about_select = "SELECT * FROM about WHERE user_id = '$user_id'";
+    $about_result = mysql_query($about_select, $connect);
+    $about_row = mysql_fetch_array($about_result);
+
+    // skills_frontend
     $skills_frontend_select = "SELECT * FROM skills_frontend WHERE user_id = '$user_id'";
     $skills_frontend_result = mysql_query($skills_frontend_select, $connect);
     $skills_frontend_row = mysql_fetch_array($skills_frontend_result);
 
+    // skills_backend
     $skills_backend_select = "SELECT * FROM skills_backend WHERE user_id = '$user_id'";
     $skills_backend_result = mysql_query($skills_backend_select, $connect);
     $skills_backend_row = mysql_fetch_array($skills_backend_result);
 
+    // services
+    $services_select = "SELECT * FROM services WHERE user_id = '$user_id'";
+    $services_result = mysql_query($services_select, $connect);
+    $services_row = mysql_fetch_array($services_result);
+
+    // contact
     $contact_select = "SELECT * FROM contact WHERE user_id = '$user_id'";
     $contact_result = mysql_query($contact_select, $connect);
     $contact_row = mysql_fetch_array($contact_result);
@@ -194,19 +208,35 @@
 
                     <div class="about__data">
 
-                        <p class="about__description">원하는 본인 소개글을 작성하세요! 원하는 본인 소개글을 작성하세요! 원하는 본인 소개글을 작성하세요!</p>
+                        <p class="about__description">
+                            <?php
+                                echo $about_row['about_information'];
+                            ?>
+                        </p>
 
                         <div class="about__info">
                             <div class="about__info-div">
-                                <span class="about__info-title">04+</span>
+                                <span class="about__info-title">
+                                    <?php
+                                        echo $about_row['experience'];
+                                    ?>
+                                </span>
                                 <span class="about__info-name">Years <br> experience</span>
                             </div>
                             <div class="about__info-div">
-                                <span class="about__info-title">08+</span>
+                                <span class="about__info-title">
+                                    <?php
+                                        echo $about_row['project'];
+                                    ?>
+                                </span>
                                 <span class="about__info-name">Completed <br> project</span>
                             </div>
                             <div class="about__info-div">
-                                <span class="about__info-title">01+</span>
+                                <span class="about__info-title">
+                                    <?php
+                                        echo $about_row['worked'];
+                                    ?>
+                                </span>
                                 <span class="about__info-name">Compaines <br> worked</span>
                             </div>
                         </div>
@@ -245,7 +275,6 @@
                             <div class="skills__list grid">
                                 <div class="skills__data">
                                     <div class="skills__titles">
-                                        <!-- DB 입력값 변수로 변경할 것 skills 와 percentage-->
                                         <h3 class="skills__name">
                                             <?php 
                                                 echo $skills_frontend_row['skills_front_1'];
@@ -254,7 +283,6 @@
                                         <span class="skills__number"><?php echo $skills_frontend_row['skills_front_per_1'];?>%</span>
                                     </div>
                                     <div class="skills__bar">
-                                        <!-- DB 입력값 변수로 변경할 것 percentage-->
                                         <span class="skills__percentage skills__html" style="width : <?php echo $skills_frontend_row['skills_front_per_1'];?>%;"></span>
                                     </div>
                                 </div>
@@ -580,19 +608,35 @@
                                 <ul class="services__modal-services grid">
                                     <li class="services__modal-service">
                                         <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>I develop the user interface.</p>
+                                        <p>
+                                            <?php
+                                                echo $services_row['services_front_1'];
+                                            ?>
+                                        </p>
                                     </li>
                                     <li class="services__modal-service">
                                         <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Web page development.</p>
+                                        <p>
+                                            <?php
+                                                echo $services_row['services_front_2'];
+                                            ?>
+                                        </p>
                                     </li>
                                     <li class="services__modal-service">
                                         <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>I create ux element interactions.</p>
+                                        <p>
+                                            <?php
+                                                echo $services_row['services_front_3'];
+                                            ?>
+                                        </p>
                                     </li>
                                     <li class="services__modal-service">
                                         <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>I position your company brand.</p>
+                                        <p>
+                                            <?php
+                                                echo $services_row['services_front_4'];
+                                            ?>
+                                        </p>
                                     </li>
                                 </ul>
                             </div>
@@ -622,19 +666,35 @@
                                 <ul class="services__modal-services grid">
                                     <li class="services__modal-service">
                                         <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>I develop the user interface.</p>
+                                        <p>
+                                            <?php
+                                                echo $services_row['services_back_1'];
+                                            ?>
+                                        </p>
                                     </li>
                                     <li class="services__modal-service">
                                         <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>Web page development.</p>
+                                        <p>
+                                            <?php
+                                                echo $services_row['services_back_2'];
+                                            ?>
+                                        </p>
                                     </li>
                                     <li class="services__modal-service">
                                         <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>I create ux element interactions.</p>
+                                        <p>
+                                            <?php
+                                                echo $services_row['services_back_3'];
+                                            ?>
+                                        </p>
                                     </li>
                                     <li class="services__modal-service">
                                         <i class="uil uil-check-circle services__modal-icon"></i>
-                                        <p>I position your company brand.</p>
+                                        <p>
+                                            <?php
+                                                echo $services_row['services_back_4'];
+                                            ?>
+                                        </p>
                                     </li>
                                 </ul>
                             </div>

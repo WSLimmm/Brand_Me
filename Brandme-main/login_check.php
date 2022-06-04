@@ -42,7 +42,7 @@
                 
                     echo "
                         <script>
-                            location.replace('binary.php');
+                            location.replace('home.php');
                         </script>
                     ";
                 }

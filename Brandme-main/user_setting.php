@@ -23,22 +23,32 @@
     
     <body>
         <?php
+            // home
             $home_select = "SELECT * FROM home WHERE user_id = '$user_id'";
             $home_result = mysql_query($home_select, $connect);
             $home_row = mysql_fetch_array($home_result);
 
+            // about
             $about_select = "SELECT * FROM about WHERE user_id = '$user_id'";
             $about_result = mysql_query($about_select, $connect);
             $about_row = mysql_fetch_array($about_result);
 
+            // skills_backend
             $skills_backend_select = "SELECT * FROM skills_backend WHERE user_id = '$user_id'";
             $skills_backend_result = mysql_query($skills_backend_select, $connect);
             $skills_backend_row = mysql_fetch_array($skills_backend_result);
 
+            // skills_frontend
             $skills_frontend_select = "SELECT * FROM skills_frontend WHERE user_id = '$user_id'";
             $skills_frontend_result = mysql_query($skills_frontend_select, $connect);
             $skills_frontend_row = mysql_fetch_array($skills_frontend_result);
 
+            // services
+            $services_select = "SELECT * FROM services WHERE user_id = '$user_id'";
+            $services_result = mysql_query($services_select, $connect);
+            $services_row = mysql_fetch_array($services_result);
+
+            // contact
             $contact_select = "SELECT * FROM contact WHERE user_id = '$user_id'";
             $contact_result = mysql_query($contact_select, $connect);
             $contact_row = mysql_fetch_array($contact_result);
@@ -178,9 +188,18 @@
                         </div>
 
                         <div class="about__input grid">
-                            <div>dsadas</div>
-                            <div>dsadsad</div>
-                            <div>dsadas</div>
+                            <div>
+                                <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i>Year Experience</label>
+                                <input type="number" name ="notion" class="input__link" value="<?php echo $about_row['experience'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i>Completed Project Number</label>
+                                <input type="number" name ="notion" class="input__link" value="<?php echo $home_row['project'];?>">
+                            </div>
+                            <div>
+                                <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i>Companies Worked</label>
+                                <input type="number" name ="notion" class="input__link" value="<?php echo $home_row['worked'];?>">
+                            </div>
                         </div>
                     </div>
                     
@@ -329,9 +348,65 @@
                 <h2 class="section__title">Services</h2>
                 <span class="section__subtitle">What i offer</span>
 
-                <!-- <form method ="post" action="user_setting_check.php" class="services__form grid">
+                <div class="contact__container container grid">
+                        <h1 class="skills__title"><i class="uil uil-brackets-curly skills__icon"></i> Frontend Developer</h1>
+                        <div class="skills__sub grid">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="skills__skill grid">
+                            <div class="skills__inputs">
+                                <input name ="services_front_1" type="text" class="skills__input" placeholder="I develop the user interface." value="<?php echo $services_row['services_front_1'];?>">
+                            </div>
+                        </div>
 
-                </form> -->
+                        <div class="skills__skill grid">
+                            <div class="skills__inputs">
+                                <input name ="services_front_2" type="text" class="skills__input" value="<?php echo $services_row['services_front_2'];?>">
+                            </div>
+                        </div> 
+
+                        <div class="skills__skill grid">
+                            <div class="skills__inputs">
+                                <input name ="services_front_3" type="text" class="skills__input" value="<?php echo $services_row['services_front_3'];?>">
+                            </div>
+                        </div> 
+
+                        <div class="skills__skill grid">
+                            <div class="skills__inputs">
+                                <input name ="services_front_4" type="text" class="skills__input" value="<?php echo $services_row['services_front_4'];?>">
+                            </div>
+                        </div>
+
+                        <h1 class="skills__title"><i class="uil uil-server-network skills__icon"></i> Backend Developer</h1>
+                        <div class="skills__sub grid">
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="skills__skill grid">
+                            <div class="skills__inputs">
+                                <input name ="services_back_1" type="text" class="skills__input" placeholder="I create ux element interactions." value="<?php echo $services_row['services_back_1'];?>">
+                            </div>
+                        </div>
+
+                        <div class="skills__skill grid">
+                            <div class="skills__inputs">
+                                <input name ="services_back_2" type="text" class="skills__input" value="<?php echo $services_row['services_back_2'];?>">
+                            </div>
+                        </div> 
+
+                        <div class="skills__skill grid">
+                            <div class="skills__inputs">
+                                <input name ="services_back_3" type="text" class="skills__input" value="<?php echo $services_row['services_back_3'];?>">
+                            </div>
+                        </div> 
+
+                        <div class="skills__skill grid">
+                            <div class="skills__inputs">
+                                <input name ="services_back_4" type="text" class="skills__input" value="<?php echo $services_row['services_back_4'];?>">
+                            </div>
+                        </div>
+                </div>
             </section>
 
             <!-- ===========================//// PORTFOLIO ////================================= -->

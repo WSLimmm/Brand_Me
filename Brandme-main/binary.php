@@ -8,22 +8,21 @@
 
     if (!isset($_SESSION['user_id'])) {
 
-        // 로그인이 되어있지 않을 시 로그인 페이지로 이동.
+        // 로그인이 되어있지 않을 시 뒤로 페이지로 이동.
         echo "
             <script>
                 window.alert('로그인 후 이용해 주세요.')
-                location.replace('login.php');
+                history.go(-1)
             </script>
             ";
     } else {
 
         if (!$home) {
 
-            // 로그인이 되어 있고 첫 방문이라면 user_setting 페이지로 이동.
+            // 로그인이 되어 있고 첫 방문이라면 firstcon 페이지로 이동.
             echo "
                 <script>
-                    window.alert('첫 방문을 환영합니다.')
-                    location.replace('user_setting.php');
+                    location.replace('firstcon.html');
                 </script>
             ";
         } else {
