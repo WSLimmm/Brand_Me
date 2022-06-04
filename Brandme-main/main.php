@@ -816,31 +816,29 @@
                         </div>
                     </div>
 
-                    <form action="mail.php" method="post" class="contact__form grid">
+                    <form action="contactme.php" method="post" class="contact__form grid">
                         <div class="contact__inputs grid">
                             <div class="contact__content">
                                 <label for="" class="contact__label">Name</label>
-                                <input type="text" name="mail_name" class="contact__input">
+                                <input type="text" name="contactme_name" class="contact__input">
                             </div>
 
                             <div class="contact__content">
                                 <label for="" class="contact__label">Email</label>
-                                <input type="email" name="mail_email" class="contact__input">
+                                <input type="email" name="contactme_email" class="contact__input">
                             </div>
                         </div>
                         <div class="contact__content">
-                            <label for="" class="contact__label">Project Title</label>
-                            <input type="text" name="mail_title" class="contact__input">
+                            <label for="" class="contact__label">Title</label>
+                            <input type="text" name="contactme_title" class="contact__input">
                         </div>
                         <div class="contact__content">
                             <label for="" class="contact__label">Message</label>
-                            <textarea name="mail_message" id="" cols="0" rows="7" class="contact__input"></textarea>
+                            <textarea name="contactme_message" id="" cols="0" rows="7" class="contact__input"></textarea>
                         </div>
 
                         <div>
-                            <a href="mail.php" class="button button--flex">
-                                Send Message
-                                <i class="uil uil-message button__icon"></i>
+                            <input type="submit" class="button button--flex button__icon uil uil-message" value="Send Message">
                             </a>
                         </div>
                     </form>

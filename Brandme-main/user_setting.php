@@ -204,7 +204,6 @@
                     </div>
                     
                     <div class="about__data">
-                        <!-- DB 입력값 변수로 변경할 것 -->
                         <div class="about__info">
                         </div>
 
