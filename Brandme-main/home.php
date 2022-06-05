@@ -23,9 +23,9 @@
             <a href="home.php" class="nav__logo">Brand Me.</a>
             <div class="nav_menu">
                 <a href="binary.php" class="nav_items">Portfolio</a>
-                <a href="#" class="nav_items">Board</a>
-                <a href="#" class="nav_items">Contact Us</a>
-                <a href="#" class="nav_items">MyPage</a>
+                <a href="Board.html" class="nav_items">Board</a>
+                <a href="ContactUs.html" class="nav_items">Contact Us</a>
+                <a href="MyPage.html" class="nav_items">MyPage</a>
 
                 <?php
                     if (!isset($_SESSION['user_id'])) {
