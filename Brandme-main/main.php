@@ -214,8 +214,8 @@
                 <span class="section__subtitle">My introduction</span>
 
                 <div class="about__container container grid">
-                    <img src="./img/about.png" alt="" class="about__img">
-
+                    <img src=<?php echo$about_row['about_img'];?> alt="" class="about__img"/>
+                    
                     <div class="about__data">
 
                         <p class="about__description">
@@ -276,7 +276,7 @@
 
                                 <div>
                                     <h1 class="skills__title">Frontend developer</h1>
-                                    <span class="skills__subtitle">More than 2 years</span>
+                                    <span class="skills__subtitle"></span>
                                 </div>
 
                                 <i class="uil uil-angle-down skills__arrow"></i>
@@ -350,7 +350,7 @@
 
                                 <div>
                                     <h1 class="skills__title">Backend developer</h1>
-                                    <span class="skills__subtitle">More than 1 years</span>
+                                    <span class="skills__subtitle"></span>
                                 </div>
 
                                 <i class="uil uil-angle-down skills__arrow"></i>

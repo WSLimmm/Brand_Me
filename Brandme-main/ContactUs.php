@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include "dbconn.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,9 +30,9 @@
                     <div class="nav_menu">
                         <a href="binary.php" class="nav_items">Portfolio</a>
                         <!-- php로 변경 -->
-                        <a href="Board.html" class="nav_items">Board</a>
-                        <a href="ContactUs.html" class="nav_items">Contact Us</a>
-                        <a href="MyPage.html" class="nav_items">MyPage</a>
+                        <a href="Board.php" class="nav_items">Board</a>
+                        <a href="ContactUs.php" class="nav_items" style="color: #fff;">Contact Us</a>
+                        <a href="MyPage.php" class="nav_items">MyPage</a>
 
                         <?php
                             if (!isset($_SESSION['user_id'])) {
@@ -55,8 +60,48 @@
         <img src="./img/ContacImg.svg" alt class="ContactImg"/>
         <img src="./img/ContacMail.svg" alt class="ContactMail"/>
         <img src="./img/section1_img2.png" class="ContactBg"/>
+        <h1 class="ContactUs_Title">Contact Us</h1>
         <div class="ContacUs_Content_Container">
-            <h1>Contact Container</h1>
+            <!-- <h1>Contact Us</h1> -->
+            <div class="ContactUs_Content_item">
+                <div class="Content_ImgArea">
+                    <img src="./img/stripy-user.png" alt class="Contact_img"/>
+                </div>
+                <div class="Content_ContentArea">
+                    <div class="ContentArea_Content">
+                        <h4><i class="uil uil-user"></i></h4>
+                        <h4>정현수</h4>
+                    </div>
+                    <div class="ContentArea_Content">
+                        <h4><i class="uil uil-envelope-alt"></i></h4>
+                        <h4>junghss0113@gmail.com</h4>
+                    </div>
+                    <div class="ContentArea_Content">
+                        <h4><i class="uil uil-github-alt"></i></h4>
+                        <h4>github.com/hyunsb</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ContactUs_Content_item">
+                <div class="Content_ImgArea">
+                    <img src="./img/stripy-user.png" alt class="Contact_img"/>
+                </div>
+                <div class="Content_ContentArea">
+                    <div class="ContentArea_Content">
+                        <h4><i class="uil uil-user"></i></h4>
+                        <h4>임우석</h4>
+                    </div>
+                    <div class="ContentArea_Content">
+                        <h4><i class="uil uil-envelope-alt"></i></h4>
+                        <h4>caker97@nate.com</h4>
+                    </div>
+                    <div class="ContentArea_Content">
+                        <h4><i class="uil uil-github-alt"></i></h4>
+                        <h4>github.com/WSLimmm</h4>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

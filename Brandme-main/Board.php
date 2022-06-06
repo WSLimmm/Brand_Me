@@ -30,9 +30,9 @@
                     <div class="nav_menu">
                         <a href="binary.php" class="nav_items">Portfolio</a>
                         <!-- php로 변경 -->
-                        <a href="Board.html" class="nav_items">Board</a>
-                        <a href="ContactUs.html" class="nav_items">Contact Us</a>
-                        <a href="MyPage.html" class="nav_items">MyPage</a>
+                        <a href="Board.php" class="nav_items" style="color: #fff;">Board</a>
+                        <a href="ContactUs.php" class="nav_items">Contact Us</a>
+                        <a href="MyPage.php" class="nav_items">MyPage</a>
 
                         <?php
                             if (!isset($_SESSION['user_id'])) {
@@ -63,12 +63,32 @@
             <img src="./img/bubble_right2.svg" alt class="imgBubble2"/>
             <div class="Search_SearchBar">
                 <!-- form 추가 -->
-                <h1>Search Bar Design</h1>
+                <div class="SearchBar_Area">
+                    <i class="uil uil-search"></i>
+                    <input type="text" class="SearchBar_Input"
+                    placeholder="#Backend, #Frontend"/>
+                </div>
             </div>
         </div>
         <div class="Board_Content_Container">
             <div class="Board_Content_Area">
-                <h1>Board Area</h1>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
+                <div class="Board_Test"></div>
             </div>
         </div>
     </div>

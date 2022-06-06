@@ -64,7 +64,7 @@
             $contact_row = mysql_fetch_array($contact_result);
 
         ?>
-        <form action="user_setting_check.php" method="post" >
+        <form action="user_setting_check.php" method="post" enctype="multipart/form-data">
         <!-- ===========================//// HEADER ////================================= -->
         <header class="header" id="header">
             <!-- ===========================//// NAV ////================================= -->
@@ -110,7 +110,7 @@
                         <li class="nav__item">
                             <a href="user_setting_check.php" class="nav__link setting">
                                 <!-- DB user ID값으로 변경 -->
-                                <i class="uil uil-user nav__icon"></i> <input type="submit"></input>
+                                <i class="uil uil-user nav__icon"></i> <input type="submit" value="done!"></input>
                             </a>
                         </li>
                     </ul>
@@ -196,7 +196,13 @@
                     <div class="home__userinfo">
                         <div class="home__infomation home__items">
                             <div class="contact__inputs">
-                                <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i> information</label>
+                                <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i> Image</label>
+                                
+                                <input name="about_img" id="" cols="0" rows="1" class="contact__input" type="file"><?php echo"<img src='photo.png'/>";?></input>
+                            </div>
+
+                            <div class="contact__inputs">
+                                <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i> Information</label>
                                 
                                 <textarea name="about_information" id="" cols="0" rows="1" class="contact__input"><?php echo $about_row['about_information'];?></textarea>
                             </div>
@@ -209,11 +215,11 @@
                             </div>
                             <div>
                                 <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i>Completed Project Number</label>
-                                <input type="number" name ="project" class="input__link" value="<?php echo $home_row['project'];?>">
+                                <input type="number" name ="project" class="input__link" value="<?php echo $about_row['project'];?>">
                             </div>
                             <div>
                                 <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i>Companies Worked</label>
-                                <input type="number" name ="workd" class="input__link" value="<?php echo $home_row['worked'];?>">
+                                <input type="number" name ="workd" class="input__link" value="<?php echo $about_row['worked'];?>">
                             </div>
                         </div>
                     </div>

@@ -13,7 +13,10 @@
     <title>Sign Up</title>
 </head>
 <body>
-    <div class="login-form">
+    <img src="./img/section1_img2.png" class="section1_img2"/>
+    <img src="./img/section1_img2.png" class="section1_img3"/>
+    <div class="purple_Area"></div>
+    <div class="signUp-form">
         <div class="logo">
             <h1>Sign Up</h1>
         </div>

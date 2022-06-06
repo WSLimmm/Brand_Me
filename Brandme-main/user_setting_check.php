@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF8">
+</head>
+</html>
+
 <?php
             session_start();
             include "dbconn.php";   // db 연결
@@ -12,11 +19,45 @@
             $notion = $_POST['notion'];
             $instagram = $_POST['instagram'];
 
-            // about 부분 추가해야함.
+            // about
             $about_information = $_POST['about_information'];
             $experience = $_POST['experience'];
             $project = $_POST['project'];
             $worked = $_POST['worked'];
+
+            // about image
+            $tempFile = $_FILES['about_img']['tmp_name']; // 임시 저장 정보(tmp_name)
+            $fileTpyeExt = explode("/", $_FILES['about_img']['type']); // 파일타입 및 확장자 체크
+            $fileType = $fileTpyeExt[0]; // 파일 타입
+            $fileExt = $fileTpyeExt[1]; // 파일 확장자
+            $extStatus = false; // 확장자 검사
+
+            // 이미지 전용 파일인지 확인
+            switch($fileExt) {
+                case 'jpeg':
+                case 'jpg':
+                case 'gif':
+                case 'bmp':
+                case 'png':
+                    $extStatus = true;
+                    break;
+                
+                default:
+                    echo "
+                        <script>
+                            window.alert('이미지 전용 확장자(jpg, bmp, gif, png) 외에는 사용이 불가합니다.')
+                            history.go(-1)
+                        </script>
+                    ";
+                    exit;
+                    break;
+            }
+
+            // 임시 파일에서 적해진 user_img 파일로 이동
+            if ($extStatus) {
+                $resFile = "./user_img/{$_FILES['about_img']['name']}";
+                $imageUpload = move_uploaded_file($tempFile, $resFile);
+            }
 
             // skills frontend
             $skills_front_1 = $_POST['skills_front_1'];
@@ -94,7 +135,7 @@
 
                 // about 정보 입력
                 $insert_about = "INSERT INTO about (user_id, about_img, about_information, experience, project, worked)
-                                    VALUES ('$user_id', '$about_img', '$about_information', '$experience', '$project', '$worked')";
+                                    VALUES ('$user_id', '$resFile', '$about_information', '$experience', '$project', '$worked')";
                 $insert_about_result = mysql_query($insert_about, $connect);
 
                 // skills_frontend 정보 입력
@@ -154,7 +195,7 @@
 
 
                 // about 정보 수정
-                $update_about = "UPDATE about SET user_id = '$user_id', about_img = '$about_img', about_information = '$about_information',
+                $update_about = "UPDATE about SET user_id = '$user_id', about_img = '$resFile', about_information = '$about_information',
                                     experience = '$experience', project = '$project', worked = '$worked' WHERE user_id = '$user_id'";
                 $update_about_result = mysql_query($update_about, $connect);
                 
@@ -206,3 +247,4 @@
 
             mysql_close();
         ?>
+

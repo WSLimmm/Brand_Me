@@ -23,9 +23,9 @@
             <a href="home.php" class="nav__logo">Brand Me.</a>
             <div class="nav_menu">
                 <a href="binary.php" class="nav_items">Portfolio</a>
-                <a href="Board.html" class="nav_items">Board</a>
-                <a href="ContactUs.html" class="nav_items">Contact Us</a>
-                <a href="MyPage.html" class="nav_items">MyPage</a>
+                <a href="Board.php" class="nav_items">Board</a>
+                <a href="ContactUs.php" class="nav_items">Contact Us</a>
+                <a href="MyPage.php" class="nav_items">MyPage</a>
 
                 <?php
                     if (!isset($_SESSION['user_id'])) {
@@ -104,9 +104,10 @@
             <p class="footer__copy">&#169; Brand ME. All right reserved</p>
         </div>
     </footer>
-    <div class="footer_img_Area">
+    
+    <!-- <div class="footer_img_Area">
         <img src="./img/section1_img2R.png" alt class="footer_img"/>
-    </div>
+    </div> -->
 
     <script src="./js/swiper-bundle.min.js"></script>
 </body>
