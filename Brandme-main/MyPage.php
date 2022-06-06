@@ -1,6 +1,22 @@
 <?php
     session_start();
     include "dbconn.php";
+    if (!isset($_SESSION['user_id'])) {
+
+        // 로그인이 되어있지 않을 시 뒤로 페이지로 이동.
+        echo "
+            <script>
+                window.alert('로그인 후 이용해 주세요.')
+                location.replace('home.php');
+            </script>
+            ";
+    }
+
+    $user_id = $_SESSION['user_id'];
+
+    $select_info = "SELECT * FROM userinfo WHERE user_id = '$user_id'";
+    $result = mysql_query($select_info, $connect);
+    $row = mysql_fetch_array($result);
 ?>
 
 <!DOCTYPE html>
@@ -75,17 +91,17 @@
                     <div class="Info_Container">
                         <div class="userInfo_items">
                             <h2>NAME</h2>
-                            <h2>정현수</h2>
+                            <h2><?php echo$row['user_name']?></h2>
                         </div>
 
                         <div class="userInfo_items">
                             <h2>ID</h2>
-                            <h2>jhss0113</h2>
+                            <h2><?php echo$row['user_id']?></h2>
                         </div>
 
                         <div class="userInfo_items">
                             <h2>PW</h2>
-                            <h2>wjdgustn1!</h2>
+                            <h2><?php echo$row['user_pw']?></h2>
                         </div>
                     </div>
                 </div>

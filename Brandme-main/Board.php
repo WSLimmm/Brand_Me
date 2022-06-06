@@ -1,6 +1,16 @@
 <?php
     session_start();
     include "dbconn.php";
+    if (!isset($_SESSION['user_id'])) {
+
+        // 로그인이 되어있지 않을 시 뒤로 페이지로 이동.
+        echo "
+            <script>
+                window.alert('로그인 후 이용해 주세요.')
+                location.replace('home.php');
+            </script>
+            ";
+    }
 ?>
 
 <!DOCTYPE html>

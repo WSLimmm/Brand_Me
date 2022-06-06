@@ -147,7 +147,12 @@
                         <div class="home__useroccupation home__items">
                             <div class="contact__inputs">
                                 <label for="" class="contact__label"><i class="uil uil-bag"></i> occupation</label>
-                                <input type="text" name ="occupation" class="contact__input" value="<?php echo $home_row['occupation'];?>">
+                                <select name="occupation" class="" value="<?php echo $home_row['occupation'];?>">
+                                    <option>Frontend Developer</option>
+                                    <option>Backend Developer</option>
+                                    <option>SoftWare Developer</option>
+                                    <option>AI Developer</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -219,7 +224,7 @@
                             </div>
                             <div>
                                 <label for="" class="contact__label"><i class="uil uil-comment-alt-chart-lines"></i>Companies Worked</label>
-                                <input type="number" name ="workd" class="input__link" value="<?php echo $about_row['worked'];?>">
+                                <input type="number" name ="worked" class="input__link" value="<?php echo $about_row['worked'];?>">
                             </div>
                         </div>
                     </div>

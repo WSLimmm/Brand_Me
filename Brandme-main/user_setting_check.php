@@ -31,34 +31,10 @@
             $fileType = $fileTpyeExt[0]; // 파일 타입
             $fileExt = $fileTpyeExt[1]; // 파일 확장자
             $extStatus = false; // 확장자 검사
-
-            // 이미지 전용 파일인지 확인
-            switch($fileExt) {
-                case 'jpeg':
-                case 'jpg':
-                case 'gif':
-                case 'bmp':
-                case 'png':
-                    $extStatus = true;
-                    break;
-                
-                default:
-                    echo "
-                        <script>
-                            window.alert('이미지 전용 확장자(jpg, bmp, gif, png) 외에는 사용이 불가합니다.')
-                            history.go(-1)
-                        </script>
-                    ";
-                    exit;
-                    break;
-            }
-
-            // 임시 파일에서 적해진 user_img 파일로 이동
-            if ($extStatus) {
-                $resFile = "./user_img/{$_FILES['about_img']['name']}";
-                $imageUpload = move_uploaded_file($tempFile, $resFile);
-            }
-
+            
+            $resFile = "./user_img/{$_FILES['about_img']['name']}";
+            $imageUpload = move_uploaded_file($tempFile, $resFile);
+            
             // skills frontend
             $skills_front_1 = $_POST['skills_front_1'];
             $skills_front_2 = $_POST['skills_front_2'];
