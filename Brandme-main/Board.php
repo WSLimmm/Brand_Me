@@ -1,6 +1,7 @@
 <?php
     session_start();
     include "dbconn.php";
+    
     if (!isset($_SESSION['user_id'])) {
 
         // 로그인이 되어있지 않을 시 뒤로 페이지로 이동.
@@ -11,12 +12,18 @@
             </script>
             ";
     }
+
+    $search = $_POST['search'];
+
+    $board_select = "SELECT * FROM board";
+    $board_result = mysql_query($board_select, $connect);
+    $board_num_match = mysql_num_rows($board_result);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brand Me.</title>
@@ -39,7 +46,6 @@
                     <a href="home.php" class="nav__logo">Brand Me.</a>
                     <div class="nav_menu">
                         <a href="binary.php" class="nav_items">Portfolio</a>
-                        <!-- php로 변경 -->
                         <a href="Board.php" class="nav_items" style="color: #fff;">Board</a>
                         <a href="ContactUs.php" class="nav_items">Contact Us</a>
                         <a href="MyPage.php" class="nav_items">MyPage</a>
@@ -72,17 +78,59 @@
             <img src="./img/bubble_left2.svg" alt class="imgBubble"/>
             <img src="./img/bubble_right2.svg" alt class="imgBubble2"/>
             <div class="Search_SearchBar">
+                <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
                 <!-- form 추가 -->
                 <div class="SearchBar_Area">
                     <i class="uil uil-search"></i>
-                    <input type="text" class="SearchBar_Input"
+                    <input type="text" class="SearchBar_Input" name="search"
                     placeholder="#Backend, #Frontend"/>
+                    <input type="submit" value="검색" />
                 </div>
+                </form>
             </div>
         </div>
         <div class="Board_Content_Container">
             <div class="Board_Content_Area">
-                <div class="Board_Test"></div>
+                <!-- <php
+
+                    db 커넥트
+                    검색어 입력된 직종 select
+
+                    if( 검색된 거 없으면 )
+                        alert (검색 결과가 없습니다)
+                    else {
+                        뽑아와 ~
+                        <div>
+                            djsalkdjlsakdjas
+                            dkjasdhajshdkas
+                            djsakljdklasjdlka
+                        </div>
+                    }
+                    >
+                     -->
+                <?php
+                    
+                    while($board_row = mysql_fetch_row($board_result)) {
+                        echo "
+                            <div class='Board_Test'>
+                                <h3>$board_row[1]</h3>
+                                <h3>$board_row[2]</h3>
+                                <h3>$board_row[3]</h3>
+                            </div>
+                        ";
+                    }
+                    echo $board_num_match;
+                    echo $search;
+                ?>
+
+
+
+
+                <div class="Board_Test">
+                    <?php
+
+                    ?>
+                </div>
                 <div class="Board_Test"></div>
                 <div class="Board_Test"></div>
                 <div class="Board_Test"></div>

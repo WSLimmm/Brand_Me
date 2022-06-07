@@ -109,6 +109,11 @@
                                     VALUES ('$user_id', '$home_name', '$home_occupation', '$home_information', '$git', '$notion', '$instagram')";
                 $insert_home_result = mysql_query($insert_home, $connect);
 
+                // board 정보 입력
+                $insert_board = "INSERT INTO board (board_id, board_name, board_occupation)
+                                    VALUES ('$user_id', '$home_name', '$home_occupation')";
+                $insert_board_result = mysql_query($insert_board, $connect);
+
                 // about 정보 입력
                 $insert_about = "INSERT INTO about (user_id, about_img, about_information, experience, project, worked)
                                     VALUES ('$user_id', '$resFile', '$about_information', '$experience', '$project', '$worked')";
@@ -169,6 +174,9 @@
                                     home_information = '$home_information', git = '$git', notion = '$notion', instagram = '$instagram' WHERE user_id = '$user_id'";
                 $update_home_result = mysql_query($update_home, $connect);
 
+                // board 정보 수정
+                $update_board = "UPDATE board SET board_id = '$user_id', board_name = '$home_name', board_occupation = '$home_occupation' WHERE board_id = '$user_id'";
+                $update_board_result = mysql_query($update_board, $connect);
 
                 // about 정보 수정
                 $update_about = "UPDATE about SET user_id = '$user_id', about_img = '$resFile', about_information = '$about_information',
