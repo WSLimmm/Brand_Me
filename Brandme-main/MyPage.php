@@ -17,6 +17,10 @@
     $select_info = "SELECT * FROM userinfo WHERE user_id = '$user_id'";
     $result = mysql_query($select_info, $connect);
     $row = mysql_fetch_array($result);
+
+    $select_contactme = "SELECT * FROM contactme WHERE user_id = '$user_id'";
+    $contactme_result = mysql_query($select_contactme, $connect);
+    $contactme_row = mysql_fetch_array($contactme_result);
 ?>
 
 <!DOCTYPE html>
@@ -112,7 +116,12 @@
             <!--///////////////// UserContent Area//////////////////-->
             <div class="mypage_UserContent_Area">
                 <div class="UserContent_Container">
-
+                    <?php
+                        echo "
+                        {$contactme_row['contactme_user_id']}, {$contactme_row['contactme_name']},
+                        {$contactme_row['contactme_email']}, {$contactme_row['contactme_title']}, {$contactme_row['contactme_message']}
+                        ";
+                    ?>
                 </div>
             </div>
         </div>

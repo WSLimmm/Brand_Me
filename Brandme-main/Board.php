@@ -10,12 +10,12 @@
                 window.alert('로그인 후 이용해 주세요.')
                 location.replace('home.php');
             </script>
-            ";
+        ";
     }
 
     $search = $_POST['search'];
 
-    $board_select = "SELECT * FROM board";
+    $board_select = "SELECT * FROM board WHERE board_occupation LIKE '$search%'";
     $board_result = mysql_query($board_select, $connect);
     $board_num_match = mysql_num_rows($board_result);
 ?>
@@ -70,7 +70,7 @@
             </div>
         </body>
     </div>
-
+    <form name="otherform" method="post">
     <div class="Board_Container">
         <div class="Board_Search_Area">
             <img src="./img/section1_img2.png" class="section1_img2"/>
@@ -78,77 +78,46 @@
             <img src="./img/bubble_left2.svg" alt class="imgBubble"/>
             <img src="./img/bubble_right2.svg" alt class="imgBubble2"/>
             <div class="Search_SearchBar">
-                <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-                <!-- form 추가 -->
+                <!-- <form method="post" action=""> -->
                 <div class="SearchBar_Area">
                     <i class="uil uil-search"></i>
                     <input type="text" class="SearchBar_Input" name="search"
-                    placeholder="#Backend, #Frontend"/>
-                    <input type="submit" value="검색" />
+                            placeholder="#Backend, #Frontend"/>
+                    <input type="button" name="submit1" value="검색" onclick="othersubmit(1)"/>
                 </div>
-                </form>
+                <!-- </form> -->
             </div>
         </div>
         <div class="Board_Content_Container">
             <div class="Board_Content_Area">
-                <!-- <php
-
-                    db 커넥트
-                    검색어 입력된 직종 select
-
-                    if( 검색된 거 없으면 )
-                        alert (검색 결과가 없습니다)
-                    else {
-                        뽑아와 ~
-                        <div>
-                            djsalkdjlsakdjas
-                            dkjasdhajshdkas
-                            djsakljdklasjdlka
-                        </div>
-                    }
-                    >
-                     -->
+                <!-- 검색한 포트폴리오 검색 -->
                 <?php
-                    
                     while($board_row = mysql_fetch_row($board_result)) {
                         echo "
                             <div class='Board_Test'>
+                                <input type='hidden' id='username' name='board_row1' value='$board_row[1]'></input>
                                 <h3>$board_row[1]</h3>
                                 <h3>$board_row[2]</h3>
                                 <h3>$board_row[3]</h3>
+                                <input type='button' value='입장' name='submit2' onclick='othersubmit(2)'></input>
                             </div>
                         ";
                     }
-                    echo $board_num_match;
-                    echo $search;
                 ?>
-
-
-
-
-                <div class="Board_Test">
-                    <?php
-
-                    ?>
-                </div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
-                <div class="Board_Test"></div>
+                <script>
+                    function othersubmit(n) {
+                        if(n==1) {
+                            document.otherform.action="<?php echo $_SERVER['PHP_SELF'];?>";
+                        }
+                        if(n==2) {
+                            document.otherform.action="portfolio.php";
+                        }
+                        document.otherform.submit();
+                    }
+                </script>
             </div>
         </div>
     </div>
+    </form>
 </body>
 </html>
