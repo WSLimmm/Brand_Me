@@ -109,8 +109,7 @@
                         </li>
                         <li class="nav__item">
                             <a href="user_setting_check.php" class="nav__link setting">
-                                <!-- DB user ID값으로 변경 -->
-                                <i class="uil uil-user nav__icon"></i> <input type="submit" value="done!"></input>
+                                <input class="setting_button" type="submit" value="done!"></input>
                             </a>
                         </li>
                     </ul>
@@ -147,7 +146,7 @@
                         <div class="home__useroccupation home__items">
                             <div class="contact__inputs">
                                 <label for="" class="contact__label"><i class="uil uil-bag"></i> occupation</label>
-                                <select name="occupation" class="" value="<?php echo $home_row['occupation'];?>">
+                                <select name="occupation" class="select_occupation" value="<?php echo $home_row['occupation'];?>">
                                     <option>Frontend Developer</option>
                                     <option>Backend Developer</option>
                                     <option>SoftWare Developer</option>
