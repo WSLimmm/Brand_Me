@@ -951,3 +951,7 @@ img {
     margin-bottom: 4rem;
   }
 }
+
+.home__userinfo > .contact__inputs {
+  margin-bottom: 1.5rem;
+}

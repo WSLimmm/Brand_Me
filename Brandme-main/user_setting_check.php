@@ -204,7 +204,7 @@
 
 
                 // qualification_work 정보 수정
-                $update_qualification_work = "UPDATE qualification_work SET user_id = '$user_id', work1 = '$edu1', work1_location = '$work1_location', work1_period = '$work1_period', 
+                $update_qualification_work = "UPDATE qualification_work SET user_id = '$user_id', work1 = '$work1', work1_location = '$work1_location', work1_period = '$work1_period', 
                                                 work2 = '$work2', work2_location = '$work2_location', work2_period = '$work2_period', work3 = '$work3', work3_location = '$work3_location', work3_period = '$work3_period',
                                                 work4 = '$work4', work4_location = '$work4_location', work4_period = '$work4_period' WHERE user_id = '$user_id'";
                 $update_qualification_work_result = mysql_query($update_qualification_work, $connect);

@@ -161,7 +161,7 @@
 
                         <div class="home__data">
                             <!-- DB 입력값 변수로 변경할 것 -->
-                            <h1 class="home__title">Hi, 
+                            <h1 class="home__title">Hi, I'm 
                                 <?php
                                     echo $row['user_name'];
                                 ?>

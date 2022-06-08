@@ -99,9 +99,10 @@
 
                         echo "
                             <div class='Board_Test'>
-                                <h3>$portfolio_id</h3>
-                                <h3>$portfolio_name</h3>
-                                <h3>$portfolio_occupation</h3>
+                                <h1 class='Board_icon'><i class='uil uil-user' class='Board_icon'></i></h1>
+                                <h3 class='Board_name'>$portfolio_name</h3>
+                                <h3 class='Board_occ'>$portfolio_occupation</h3>
+                                <h3 class='Board_id'>$portfolio_id</h3>
                                 <a href='portfolio.php?port_id=$portfolio_id'>입장</a>
                             </div>
                         ";
