@@ -93,16 +93,20 @@
                 <!-- 검색한 포트폴리오 검색 -->
                 <?php
                     while($board_row = mysql_fetch_row($board_result)) {
+                        $portfolio_id = $board_row[1];
+                        $portfolio_name = $board_row[2];
+                        $portfolio_occupation = $board_row[3];
+
                         echo "
                             <div class='Board_Test'>
-                                <input type='hidden' id='username' name='board_row1' value='$board_row[1]'></input>
-                                <h3>$board_row[1]</h3>
-                                <h3>$board_row[2]</h3>
-                                <h3>$board_row[3]</h3>
-                                <input type='button' value='입장' name='submit2' onclick='othersubmit(2)'></input>
+                                <h3>$portfolio_id</h3>
+                                <h3>$portfolio_name</h3>
+                                <h3>$portfolio_occupation</h3>
+                                <a href='portfolio.php?port_id=$portfolio_id'>입장</a>
                             </div>
                         ";
                     }
+                    $board_row = mysql_fetch_row($board_result);
                 ?>
                 <script>
                     function othersubmit(n) {

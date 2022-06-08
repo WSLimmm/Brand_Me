@@ -2,7 +2,7 @@
     session_start();
     include "dbconn.php";
 
-    $id = $_POST['board_row1'];
+    $id = $port_id;
 
     $sql = "SELECT user_name FROM userinfo WHERE user_id = '$id'";
     $result = mysql_query($sql, $connect);
@@ -142,7 +142,7 @@
                             </a>
 
                             <!-- DB 입력값 변수로 변경할 것 -->
-                            <a href="https://github.com/" target="_blank" class="home__social-icon">
+                            <a href="https://github.com/<?php echo$home_row['git'];?>" target="_blank" class="home__social-icon">
                                 <i class="uil uil-github-alt"></i>
                             </a>
                         </div>
@@ -152,11 +152,9 @@
 
                         <div class="home__data">
                             <!-- DB 입력값 변수로 변경할 것 -->
-                            <h1 class="home__title">Hi, 
+                            <h1 class="home__title">Hi, I'm 
                                 <?php
-                                    echo $row['user_name'];
-                                    echo $id;
-                                    echo $_SESSION['user_id'];
+                                    echo $home_row['user_name'];
                                 ?>
                             </h1>
                             <h3 class="home__subtitle"><?php 
@@ -242,12 +240,6 @@
                                 </span>
                                 <span class="about__info-name">Compaines <br> worked</span>
                             </div>
-                        </div>
-
-                        <div class="about__buttons">
-                            <a download="" href="./pdf/Cv.pdf" class="button button--flex">
-                                Download CV<i class="uil uil-download-alt button__icon"></i>
-                            </a>
                         </div>
                     </div>
                 </div>

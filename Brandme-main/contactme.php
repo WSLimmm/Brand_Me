@@ -25,7 +25,7 @@
     echo "
         <script>
             window.alert('메세지 전송에 성공하였습니다.')
-            history.go(-1)
+            location.replace('board.php');
         </script>
     ";
 

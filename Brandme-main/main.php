@@ -151,7 +151,7 @@
                             </a>
 
                             <!-- DB 입력값 변수로 변경할 것 -->
-                            <a href="https://github.com/" target="_blank" class="home__social-icon">
+                            <a href="https://github.com/<?php echo$home_row['git'];?>" target="_blank" class="home__social-icon">
                                 <i class="uil uil-github-alt"></i>
                             </a>
                         </div>
@@ -249,12 +249,6 @@
                                 </span>
                                 <span class="about__info-name">Compaines <br> worked</span>
                             </div>
-                        </div>
-
-                        <div class="about__buttons">
-                            <a download="" href="./pdf/Cv.pdf" class="button button--flex">
-                                Download CV<i class="uil uil-download-alt button__icon"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
