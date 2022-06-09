@@ -83,7 +83,7 @@
                     <i class="uil uil-search"></i>
                     <input type="text" class="SearchBar_Input" name="search"
                             placeholder="#Backend, #Frontend"/>
-                    <input type="button" name="submit1" value="검색" onclick="othersubmit(1)"/>
+                    <input type="hidden" name="submit1" onclick="othersubmit(1)"/>
                 </div>
                 <!-- </form> -->
             </div>
